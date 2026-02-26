@@ -152,7 +152,11 @@ Each `execution_id` can be used for **one review action only**: write a new revi
 
 ## 5. Manage Favorites
 
-Favorites require an API key (`$CARAVO_API_KEY`).
+`caravo fav` works in both modes — no API key required:
+
+- **With API key**: reads/writes server-side favorites
+- **Without API key**: reads/writes local `~/.caravo/favorites.json`
+- **Auto-sync**: when you first set an API key, local favorites are automatically merged to the server
 
 ```bash
 # List favorites
@@ -163,20 +167,6 @@ caravo fav add fal-ai/flux/schnell
 
 # Remove a favorite
 caravo fav rm fal-ai/flux/schnell
-```
-
-### Local Favorites (Alternative)
-
-Without an API key, you can manage favorites locally at `~/.caravo/favorites.json`:
-
-```bash
-# Initialize (first time)
-bash <(curl -s https://raw.githubusercontent.com/Caravo-AI/Agent-Skills/main/scripts/manage-favorites.sh) init
-
-# All commands use the same pattern:
-bash <(curl -s https://raw.githubusercontent.com/Caravo-AI/Agent-Skills/main/scripts/manage-favorites.sh) list
-bash <(curl -s https://raw.githubusercontent.com/Caravo-AI/Agent-Skills/main/scripts/manage-favorites.sh) add fal-ai/flux/schnell
-bash <(curl -s https://raw.githubusercontent.com/Caravo-AI/Agent-Skills/main/scripts/manage-favorites.sh) remove fal-ai/flux/schnell
 ```
 
 ## 6. Request Tools
