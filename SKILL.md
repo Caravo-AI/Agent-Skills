@@ -171,12 +171,12 @@ Without an API key, you can manage favorites locally at `~/.caravo/favorites.jso
 
 ```bash
 # Initialize (first time)
-bash <(curl -s https://raw.githubusercontent.com/Azure-Vision/API-Marketplace/main/scripts/manage-favorites.sh) init
+bash <(curl -s https://raw.githubusercontent.com/Caravo-AI/Agent-Skills/main/scripts/manage-favorites.sh) init
 
-# List / add / remove
-./scripts/manage-favorites.sh list
-./scripts/manage-favorites.sh add fal-ai/flux/schnell
-./scripts/manage-favorites.sh remove fal-ai/flux/schnell
+# All commands use the same pattern:
+bash <(curl -s https://raw.githubusercontent.com/Caravo-AI/Agent-Skills/main/scripts/manage-favorites.sh) list
+bash <(curl -s https://raw.githubusercontent.com/Caravo-AI/Agent-Skills/main/scripts/manage-favorites.sh) add fal-ai/flux/schnell
+bash <(curl -s https://raw.githubusercontent.com/Caravo-AI/Agent-Skills/main/scripts/manage-favorites.sh) remove fal-ai/flux/schnell
 ```
 
 ## 6. Request Tools
