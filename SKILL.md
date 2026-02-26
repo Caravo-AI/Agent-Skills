@@ -60,6 +60,22 @@ npm install -g @caravo/cli
 
 The CLI auto-detects which mode to use. No extra flags needed.
 
+### Connect your account later
+
+Started with x402 payments and now want to switch to balance auth (or sync favorites)? Run:
+
+```bash
+caravo login
+```
+
+This opens caravo.ai in your browser. Sign in once — the API key is saved to `~/.caravo/config.json` and automatically used by the CLI from that point on. No need to set `$CARAVO_API_KEY` manually.
+
+For MCP users, run the `login` tool inside Claude:
+```
+login
+```
+It opens the browser, waits for you to sign in, and saves the key to `~/.caravo/config.json`. Restart the MCP server afterward to also load your favorited tools.
+
 ### Wallet Reuse
 
 Multiple tools and MCP servers share the same wallet format. The CLI checks these paths in order and reuses the **first one found**:
