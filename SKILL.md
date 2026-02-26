@@ -76,6 +76,22 @@ login
 ```
 It opens the browser, waits for you to sign in, and saves the key to `~/.caravo/config.json`. Restart the MCP server afterward to also load your favorited tools.
 
+### Disconnect your account
+
+To log out and revert to x402 wallet payments:
+
+```bash
+caravo logout
+```
+
+This removes the API key from `~/.caravo/config.json`. The CLI will automatically fall back to x402 USDC payments.
+
+For MCP users, run the `logout` tool inside Claude:
+```
+logout
+```
+It clears the API key, unregisters favorited tools, and switches back to x402 mode for the current session.
+
 ### Wallet Reuse
 
 Multiple tools and MCP servers share the same wallet format. The CLI checks these paths in order and reuses the **first one found**:
