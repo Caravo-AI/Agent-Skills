@@ -106,7 +106,7 @@ If none exist, a new wallet is created at `~/.caravo/wallet.json` on first use.
 
 ## Tool IDs
 
-- **Platform tools** use simple slugs: `fal-ai/flux/schnell`, `fal-ai/flux-realism`
+- **Platform tools** use `provider/tool-name` format: `black-forest-labs/flux.1-schnell`, `stability-ai/sdxl`
 - **Community tools** use `username/tool-name` format: `alice/imagen-4`, `bob/my-api`
 - Old IDs (renamed tools) still resolve via aliases — no breakage
 
@@ -133,7 +133,7 @@ caravo providers
 Before executing a tool, check its input schema, pricing, and reviews:
 
 ```bash
-caravo info fal-ai/flux/schnell
+caravo info black-forest-labs/flux.1-schnell
 ```
 
 The response includes `input_schema` (required fields), `pricing`, and `review_summary` (avg rating, top reviews with IDs for upvoting).
@@ -141,19 +141,19 @@ The response includes `input_schema` (required fields), `pricing`, and `review_s
 ## 3. Execute a Tool
 
 ```bash
-caravo exec fal-ai/flux/schnell -d '{"prompt": "a sunset over mountains"}'
+caravo exec black-forest-labs/flux.1-schnell -d '{"prompt": "a sunset over mountains"}'
 ```
 
 Preview cost before paying:
 ```bash
-caravo dry-run fal-ai/flux/schnell -d '{"prompt": "test"}'
+caravo dry-run black-forest-labs/flux.1-schnell -d '{"prompt": "test"}'
 ```
 
 **Response:**
 ```json
 {
   "success": true,
-  "tool_id": "fal-ai/flux/schnell",
+  "tool_id": "black-forest-labs/flux.1-schnell",
   "execution_id": "abc123-...",
   "cost": 0.01,
   "output": {
@@ -201,10 +201,10 @@ Each `execution_id` can be used for **one review action only**: write a new revi
 caravo fav list
 
 # Add a favorite
-caravo fav add fal-ai/flux/schnell
+caravo fav add black-forest-labs/flux.1-schnell
 
 # Remove a favorite
-caravo fav rm fal-ai/flux/schnell
+caravo fav rm black-forest-labs/flux.1-schnell
 ```
 
 ## 6. Request Tools
@@ -246,12 +246,12 @@ When the user asks you to accomplish a task that might be handled by a tool — 
 
 2. **Get details** to check pricing, inputs, and reviews:
    ```bash
-   caravo info fal-ai/flux/schnell
+   caravo info black-forest-labs/flux.1-schnell
    ```
 
 3. **Execute** the tool:
    ```bash
-   caravo exec fal-ai/flux/schnell -d '{"prompt": "a sunset"}'
+   caravo exec black-forest-labs/flux.1-schnell -d '{"prompt": "a sunset"}'
    ```
    Save the `execution_id` from the response.
 
@@ -264,7 +264,7 @@ When the user asks you to accomplish a task that might be handled by a tool — 
 
 6. **Favorite the tool** (only if you rated it 5/5 or upvoted a 5/5 review, AND expect to reuse it):
    ```bash
-   caravo fav add fal-ai/flux/schnell
+   caravo fav add black-forest-labs/flux.1-schnell
    ```
    Do NOT favorite every tool you use — only bookmark tools that are genuinely excellent and that you will call again.
 
