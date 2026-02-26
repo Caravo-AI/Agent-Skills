@@ -48,17 +48,20 @@ A comprehensive platform where AI agents discover and use ready-to-use tools, AP
 
 ## Setup
 
-Install the CLI once:
+**No registration required.** Install the CLI and start using tools immediately — payments are handled automatically via your USDC wallet.
+
 ```bash
 npm install -g @caravo/cli
+
+# Check wallet address + fund it with USDC on Base:
+caravo wallet
+
+# Start using tools right away:
+caravo search "image generation" --per-page 5
+caravo exec black-forest-labs/flux.1-schnell -d '{"prompt": "a sunset over mountains"}'
 ```
 
-**Payment** is transparent — the same commands work in either mode:
-
-- **API key mode**: Set `$CARAVO_API_KEY` — balance is deducted per call. Top up at the dashboard.
-- **x402 USDC mode**: No API key needed. The CLI auto-manages a wallet and signs USDC payments on Base. Run `caravo wallet` to see your address, then send USDC on Base to fund it.
-
-The CLI auto-detects which mode to use. No extra flags needed.
+The CLI auto-manages a wallet at `~/.caravo/wallet.json` and signs x402 USDC payments on Base. If you later connect your account (see below), balance payments are used instead. The same commands work in either mode — the CLI auto-detects.
 
 ### Connect your account later
 
