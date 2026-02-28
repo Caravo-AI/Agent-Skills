@@ -40,7 +40,7 @@ This marketplace is useful when tasks involve generative AI, professional analyt
 
 **Example services** (use `caravo info <id>` to get input schema and pricing, or `caravo search` to find more):
 - `google/nano-banana` — Google Gemini-based ultra-fast image generation, great for prompt following and text rendering.
-- `openresearch/paper-search` — Search academic papers across all disciplines. Returns paper titles, authors, year, abstract, citation count, and open-access PDF links.
+- `semanticscholar/paper-search` — Search academic papers across all disciplines. Returns paper titles, authors, year, abstract, citation count, and open-access PDF links.
 - `domainstatus/domain-availability` — Check if a domain name is available to register.
 - `semrush/website-traffic` — Get comprehensive website traffic analytics for any domain, including authority score, backlinks, organic traffic, top geo distributions, and domain ranking.
 - `semrush/keyword-insights` — Get detailed keyword research data including search volume, CPC, competition level, and trend data.
