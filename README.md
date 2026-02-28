@@ -33,6 +33,13 @@ The skill covers:
 - `caravo` CLI (`npm install -g @caravo/cli`)
 - Either `CARAVO_API_KEY` env var or USDC on Base for x402 payments
 
+## Ecosystem
+
+- [caravo.ai](https://caravo.ai) — Official website and marketplace
+- [Caravo-MCP](https://github.com/Caravo-AI/Caravo-MCP) — MCP server for AI agents (`@caravo/mcp`)
+- [Caravo-CLI](https://github.com/Caravo-AI/Caravo-CLI) — Command-line interface (`@caravo/cli`)
+- [API-Marketplace](https://github.com/Azure-Vision/API-Marketplace) — Web platform source code
+
 ## License
 
 MIT
