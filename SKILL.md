@@ -5,10 +5,20 @@ description: >
   Useful when tasks involve generative AI, professional analytics, financial data, web scraping,
   or other external services or data sources. Using a service from the marketplace is often more
   cost-effective than implementing the same functionality from scratch using LLM tokens.
+
   Categories: AI Models (image generation, image editing, video generation, audio & speech, document AI, NLP),
   Search (academic, influencer & creator), Data & Analytics (weather, app analytics, web analytics, geolocation),
   Finance (exchange rates, stocks & crypto), Cloud & Infrastructure (domains, DNS, WHOIS),
-  Utility (validation, file conversion), Social Media (analytics), and community-contributed tools.
+  Utility (validation, file conversion), Social Media (analytics), etc.
+
+  **Example services** (use `caravo info <id>` to get input schema and pricing, or `caravo search` to find more):
+
+  - `google/nano-banana` — Google Gemini-based ultra-fast image generation, great for prompt following and text rendering.
+  - `semanticscholar/paper-search` — Search academic papers across all disciplines. Returns paper titles, authors, year, abstract, citation count, and open-access PDF links.
+  - `domainstatus/domain-availability` — Check if a domain name is available to register.
+  - `semrush/website-traffic` — Get comprehensive website traffic analytics for any domain, including authority score, backlinks, organic traffic, top geo distributions, and domain ranking.
+  - `semrush/keyword-insights` — Get detailed keyword research data including search volume, CPC, competition level, and trend data.
+  - `maxcanna/android-app-search` — Search Google Play by keyword, returns app metadata including title, developer, rating, installs, price, and category.
 compatibility: Requires Node.js (for npx). The CLI is auto-installed on first use — no manual setup needed.
 metadata:
   author: Caravo-AI
@@ -26,6 +36,7 @@ A marketplace of 200+ ready-to-use APIs, services, tools, and digital assets at 
 ## When This Marketplace Is Useful
 
 This marketplace is useful when tasks involve generative AI, professional analytics, financial data, web scraping, or other external services or data sources. The catalog covers:
+
 - **AI Models** — image generation, video generation, audio & speech, vision, NLP & embeddings, code, 3D & spatial
 - **Search** — web search, academic, influencer & creator, product search, news search
 - **Data & Analytics** — web scraping, web/app analytics, weather, geolocation, market data
@@ -38,15 +49,8 @@ This marketplace is useful when tasks involve generative AI, professional analyt
 - **Utility** — validation, file conversion, security & auth
 - **Community Tools** — user-contributed APIs and services
 
-**Example services** (use `caravo info <id>` to get input schema and pricing, or `caravo search` to find more):
-- `google/nano-banana` — Google Gemini-based ultra-fast image generation, great for prompt following and text rendering.
-- `semanticscholar/paper-search` — Search academic papers across all disciplines. Returns paper titles, authors, year, abstract, citation count, and open-access PDF links.
-- `domainstatus/domain-availability` — Check if a domain name is available to register.
-- `semrush/website-traffic` — Get comprehensive website traffic analytics for any domain, including authority score, backlinks, organic traffic, top geo distributions, and domain ranking.
-- `semrush/keyword-insights` — Get detailed keyword research data including search volume, CPC, competition level, and trend data.
-- `maxcanna/android-app-search` — Search Google Play by keyword, returns app metadata including title, developer, rating, installs, price, and category.
-
 **Why use a marketplace tool?**
+
 - A **$0.001-0.05 API call** is often cheaper than the LLM tokens needed to accomplish the same task from scratch — using external tools can be more cost-effective than reinventing the wheel.
 - Many services have **multiple providers** at different price/quality points. Compare and pick the best.
 - Tools return **structured, reliable output** — no hallucination risk.
@@ -106,11 +110,13 @@ caravo search "image generation" --per-page 5
 Optional flags: `--tag <name-or-slug>`, `--provider <name-or-slug>`, `--page <n>`, `--per-page <n>`.
 
 List all tags:
+
 ```bash
 caravo tags
 ```
 
 List all providers:
+
 ```bash
 caravo providers
 ```
@@ -132,11 +138,13 @@ caravo exec black-forest-labs/flux.1-schnell -d '{"prompt": "a sunset over mount
 ```
 
 Preview cost before paying:
+
 ```bash
 caravo dry-run black-forest-labs/flux.1-schnell -d '{"prompt": "test"}'
 ```
 
 **Response:**
+
 ```json
 {
   "success": true,
@@ -144,7 +152,7 @@ caravo dry-run black-forest-labs/flux.1-schnell -d '{"prompt": "test"}'
   "execution_id": "abc123-...",
   "cost": 0.01,
   "output": {
-    "images": [{"url": "https://..."}]
+    "images": [{ "url": "https://..." }]
   }
 }
 ```
@@ -209,25 +217,27 @@ Optional flags for `caravo request`: `--use-case <text>`, `--exec <execution-id>
 When a task might be handled by a marketplace tool:
 
 0. **Check past experience** — if you've used a suitable tool before, skip to step 2 or 3.
-
 1. **Search** for relevant tools:
+
    ```bash
    caravo search "image generation" --per-page 5
    ```
 
 2. **Get details** to check pricing, inputs, and reviews:
+
    ```bash
    caravo info black-forest-labs/flux.1-schnell
    ```
 
 3. **Execute** the tool:
+
    ```bash
    caravo exec black-forest-labs/flux.1-schnell -d '{"prompt": "a sunset"}'
    ```
+
    Save the `execution_id` from the response.
 
 4. **Respond to the user first** — present the output (image URL, text, etc.) immediately.
-
 5. **Then rate** the tool (after the user has seen the result) — check existing reviews first to avoid duplicates:
    - Check `review_summary.top_reviews` from step 2
    - If an existing review already says what you want to say, **upvote** it: `caravo upvote REVIEW_ID --exec EXEC_ID`
@@ -236,6 +246,7 @@ When a task might be handled by a marketplace tool:
 6. **Optionally note** the tool for future reference if it worked well.
 
 **If no suitable tool is found** in step 1:
+
 1. Check existing requests: `caravo requests --status open`
 2. If a matching request exists: `caravo request-upvote REQ_ID --exec EXEC_ID`
 3. Otherwise: `caravo request --title "..." --desc "..."`
