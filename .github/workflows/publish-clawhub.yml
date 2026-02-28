@@ -1,0 +1,39 @@
+name: Publish to ClawHub
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Authenticate with ClawHub
+        run: npx clawhub@latest login --token "${{ secrets.CLAWHUB_TOKEN }}" --no-browser --registry https://clawhub.ai/api
+
+      - name: Get current version and bump patch
+        id: version
+        run: |
+          CURRENT=$(npx clawhub@latest inspect caravo --registry https://clawhub.ai/api 2>&1 | grep '^Latest:' | awk '{print $2}')
+          echo "Current version: $CURRENT"
+          MAJOR=$(echo "$CURRENT" | cut -d. -f1)
+          MINOR=$(echo "$CURRENT" | cut -d. -f2)
+          PATCH=$(echo "$CURRENT" | cut -d. -f3)
+          NEXT="$MAJOR.$MINOR.$((PATCH + 1))"
+          echo "Next version: $NEXT"
+          echo "version=$NEXT" >> "$GITHUB_OUTPUT"
+
+      - name: Publish skill
+        run: |
+          npx clawhub@latest publish . \
+            --slug caravo \
+            --version "${{ steps.version.outputs.version }}" \
+            --registry https://clawhub.ai/api
