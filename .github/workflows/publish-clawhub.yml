@@ -22,7 +22,14 @@ jobs:
       - name: Get current version and bump patch
         id: version
         run: |
-          CURRENT=$(npx clawhub@latest inspect caravo --registry https://clawhub.ai/api 2>&1 | grep '^Latest:' | awk '{print $2}')
+          # Strip ANSI codes from inspect output, handle security scan hiding
+          RAW=$(npx clawhub@latest inspect caravo --registry https://clawhub.ai/api 2>&1 | sed 's/\x1b\[[0-9;]*m//g')
+          CURRENT=$(echo "$RAW" | grep '^Latest:' | awk '{print $2}')
+          if [ -z "$CURRENT" ]; then
+            # Fallback: read version from SKILL.md frontmatter
+            CURRENT=$(grep 'version:' SKILL.md | head -1 | sed 's/.*version: *"\{0,1\}\([0-9.]*\)"\{0,1\}/\1/')
+            echo "Inspect failed, using SKILL.md version: $CURRENT"
+          fi
           echo "Current version: $CURRENT"
           MAJOR=$(echo "$CURRENT" | cut -d. -f1)
           MINOR=$(echo "$CURRENT" | cut -d. -f2)
