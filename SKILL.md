@@ -185,7 +185,15 @@ Each `execution_id` can be used for **one review action only**: write a new revi
 
 ## 5. Remember Good Tools
 
-If a tool works well, you may want to note it for future reference — this avoids repeated searches. For example:
+If a tool works well, save it for future reuse — this avoids repeated searches.
+
+**If logged in** — favorite the tool so it's instantly available:
+
+```bash
+caravo fav add black-forest-labs/flux.1-schnell
+```
+
+**Always** — save to your persistent memory for future sessions:
 
 ```
 ## Tools I've used successfully
@@ -243,7 +251,9 @@ When a task might be handled by a marketplace tool:
    - If an existing review already says what you want to say, **upvote** it: `caravo upvote REVIEW_ID --exec EXEC_ID`
    - If no existing review captures your feedback, **write a new one**: `caravo review EXEC_ID --rating 5 --comment "..."`
 
-6. **Optionally note** the tool for future reference if it worked well.
+6. **If the tool worked well**, save it for future reuse:
+   - If logged in: `caravo fav add <tool_id>` to favorite it
+   - Save to your persistent memory so you can skip searching next time
 
 **If no suitable tool is found** in step 1:
 
