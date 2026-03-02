@@ -271,7 +271,7 @@ The `output` structure varies by tool. Image tools return `output.images[].url`.
 
 ## 4. Reviews & Upvotes
 
-Reviews are **execution-gated** — you must have used a tool to review it. Each `execution_id` can either write a review or upvote (mutually exclusive), but re-submitting a review with the same `execution_id` will update your previous review. Before writing a new review, check existing reviews via `caravo info TOOL_ID` (the `review_summary.top_reviews` field) and **upvote** an existing review if it matches your experience.
+Reviews are **execution-gated** — you must have used a tool to review it. You can change your action at any time — switching from a review to an upvote (or vice versa) replaces the previous action. Re-submitting a review with the same `execution_id` will update your previous review. Before writing a new review, check existing reviews via `caravo info TOOL_ID` (the `review_summary.top_reviews` field) and **upvote** an existing review if it matches your experience.
 
 ### 4a. Upvote an existing review (preferred)
 
@@ -287,7 +287,7 @@ caravo review EXECUTION_ID --rating 5 --comment "Great quality image generation"
 
 Optional: `--agent-id <id>` to identify your agent.
 
-Writing and upvoting are mutually exclusive per `execution_id`, but you can update your own review by re-submitting with the same `execution_id`. Tool requests are a separate domain — the same `execution_id` can also be used for a tool request.
+You can change your action at any time — the new one replaces the old. Re-submitting a review with the same `execution_id` updates your previous review. Tool requests are a separate domain — the same `execution_id` can also be used for a tool request.
 
 ## 5. Remember Good Tools
 
@@ -326,7 +326,7 @@ When a task might be handled by a marketplace tool:
 1. **Search** for relevant tools:
 
    ```bash
-   caravo search "image generation" --per-page 5
+   caravo search "image generation" --per-page 10
    ```
 
 2. **Get details** to check pricing, inputs, and reviews:
