@@ -196,7 +196,7 @@ The CLI auto-manages a wallet at `~/.caravo/wallet.json` and signs x402 USDC pay
 
 ### Optional: Connect your account
 
-To switch from x402 wallet payments to balance-based auth (or sync favorites):
+To switch from x402 wallet payments to balance-based auth:
 
 ```bash
 caravo login    # Opens caravo.ai — sign in once, API key saved automatically
