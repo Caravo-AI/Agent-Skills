@@ -4,17 +4,29 @@ Agent Skills for [Caravo](https://caravo.ai) — non-MCP agent integration for O
 
 ## Install
 
+### ClawHub (OpenClaw)
+
 ```bash
-# ClawHub (OpenClaw)
 npx clawhub@latest install caravo
+```
 
-# Or tell your agent directly:
-# "Read and install https://caravo.ai/skill.md"
+Or send a message to OpenClaw:
 
-# Vercel Skills CLI
+```
+Read and install https://caravo.ai/skill.md
+```
+
+### Vercel Skills CLI
+
+```bash
 npx skills add Caravo-AI/Agent-Skills
+```
 
-# Manual
+### Manual (curl)
+
+Download the skill file directly. The content at `caravo.ai/skill.md` is identical to this repo's `SKILL.md` — it's a proxy that always serves the latest version from GitHub.
+
+```bash
 curl -fsSL https://caravo.ai/skill.md \
   --create-dirs -o ~/.openclaw/skills/caravo/SKILL.md
 ```
@@ -27,13 +39,11 @@ The skill covers:
 - Tool search and discovery
 - Tool execution with automatic payment
 - Review and upvote system
-- Favorites management
 - Tool request submission
-- Raw x402 HTTP mode
 
 ## Requirements
 
-- `caravo` CLI (`npm install -g @caravo/cli`)
+- Node.js (for `npx` to auto-install the CLI)
 - Either `CARAVO_API_KEY` env var or USDC on Base for x402 payments
 
 ## Ecosystem
