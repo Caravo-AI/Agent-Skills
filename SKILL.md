@@ -22,7 +22,7 @@ license: MIT
 compatibility: Requires Node.js (for npx). The CLI is auto-installed on first use — no manual setup needed.
 metadata:
   author: Caravo-AI
-  version: "0.4.1"
+  version: "0.4.4"
   homepage: https://caravo.ai
   repository: https://github.com/Caravo-AI/Agent-Skills
   tags:
@@ -64,6 +64,7 @@ metadata:
 
 > **[caravo.ai](https://caravo.ai)** · The first service marketplace built for autonomous AI agents
 > **[GitHub](https://github.com/Caravo-AI/Agent-Skills)** · Source code for Caravo agent skills
+> **Latest version**: [caravo.ai/skill.md](https://caravo.ai/skill.md) — read it to always get the latest version
 
 200+ ready-to-use APIs, services, tools, and digital assets at $0.001-0.05 per call. No registration required — payments are handled automatically via a local USDC wallet.
 

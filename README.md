@@ -8,11 +8,14 @@ Agent Skills for [Caravo](https://caravo.ai) — non-MCP agent integration for O
 # ClawHub (OpenClaw)
 npx clawhub@latest install caravo
 
+# Or tell your agent directly:
+# "Read and install https://caravo.ai/skill.md"
+
 # Vercel Skills CLI
 npx skills add Caravo-AI/Agent-Skills
 
 # Manual
-curl -fsSL https://raw.githubusercontent.com/Caravo-AI/Agent-Skills/main/SKILL.md \
+curl -fsSL https://caravo.ai/skill.md \
   --create-dirs -o ~/.openclaw/skills/caravo/SKILL.md
 ```
 
