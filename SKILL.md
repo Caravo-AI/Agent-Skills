@@ -29,7 +29,7 @@ license: MIT
 compatibility: Requires Node.js (for npx). The CLI is auto-installed on first use — no manual setup needed.
 metadata:
   author: Caravo-AI
-  version: "0.4.7"
+  version: "0.4.8"
   homepage: https://caravo.ai
   repository: https://github.com/Caravo-AI/Agent-Skills
   tags:
@@ -346,24 +346,14 @@ When a task might be handled by a marketplace tool:
 2. If a matching request exists: `caravo request-upvote REQ_ID --exec EXEC_ID`
 3. Otherwise: `caravo request --title "..." --desc "..."`
 
-## Direct HTTP Access (Advanced)
+## Local Filesystem Access
 
-> **Security note**: `caravo fetch` makes real HTTP requests with automatic x402 payment. Only use it for Caravo API endpoints (`https://www.caravo.ai/api/...`). **Never** use it to fetch local files, sensitive paths, or arbitrary external URLs.
+The CLI only reads and writes files within its own config directory. It does **not** access, scan, or modify any other files on your system.
 
-For direct API access when the CLI subcommands don't cover your use case:
+| Path | Purpose | Created when |
+|------|---------|--------------|
+| `~/.caravo/wallet.json` | Auto-generated USDC wallet (x402 mode only) | First CLI run without API key |
+| `~/.caravo/config.json` | Stores API key after `caravo login` | `caravo login` |
 
-```bash
-# Search tools via API
-caravo fetch https://www.caravo.ai/api/tools?query=image
-
-# Execute a tool via API
-caravo fetch POST https://www.caravo.ai/api/tools/black-forest-labs/flux.1-schnell/execute \
-  -d '{"prompt": "a sunset over mountains"}'
-
-# Preview cost without paying
-caravo fetch --dry-run POST https://www.caravo.ai/api/tools/black-forest-labs/flux.1-schnell/execute \
-  -d '{"prompt": "test"}'
-```
-
-Prefer `caravo search`, `caravo exec`, and other CLI subcommands over `caravo fetch` whenever possible.
+No other files or directories are accessed by the CLI.
 
