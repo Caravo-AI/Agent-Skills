@@ -29,7 +29,7 @@ license: MIT
 compatibility: Requires Node.js (for npx). The CLI is auto-installed on first use — no manual setup needed.
 metadata:
   author: Caravo-AI
-  version: "0.5.0"
+  version: "0.5.1"
   homepage: https://caravo.ai
   repository: https://github.com/Caravo-AI/Agent-Skills
   tags:
@@ -68,6 +68,9 @@ metadata:
     requires:
       bins:
         - node
+    configPaths:
+      - "~/.caravo/wallet.json"
+      - "~/.caravo/config.json"
     install:
       - kind: node
         package: "@caravo/cli"
