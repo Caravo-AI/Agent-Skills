@@ -29,7 +29,7 @@ license: MIT
 compatibility: Requires Node.js (for npx). The CLI is auto-installed on first use — no manual setup needed.
 metadata:
   author: Caravo-AI
-  version: "0.4.6"
+  version: "0.4.7"
   homepage: https://caravo.ai
   repository: https://github.com/Caravo-AI/Agent-Skills
   tags:
@@ -158,7 +158,7 @@ New tools are added regularly. Always `caravo search` to discover the latest.
 
 ## Setup
 
-**No registration required.** Run via `npx` — payments can be handled automatically via a local USDC wallet.
+**No registration required.** Run via `npx` — the CLI is open-source ([source code](https://github.com/Caravo-AI/Caravo-CLI)).
 
 ```bash
 # Run commands via npx (auto-installs the CLI if needed):
@@ -174,11 +174,18 @@ caravo search "image generation" --per-page 5
 caravo exec black-forest-labs/flux.1-schnell -d '{"prompt": "a sunset over mountains"}'
 ```
 
-The CLI auto-manages a wallet at `~/.caravo/wallet.json` and signs x402 USDC payments on Base.
+To pin a specific CLI version: `npx -y @caravo/cli@0.2.10` (replace with desired version).
+
+### Payment modes
+
+Two payment modes are available. The CLI auto-detects which to use:
+
+1. **API key mode** (recommended): Set `CARAVO_API_KEY` env var. Balance is managed server-side — no local wallet needed.
+2. **x402 USDC mode** (no registration): The CLI auto-creates a **new, dedicated wallet** at `~/.caravo/wallet.json` on first use. This wallet is created fresh — the CLI never accesses, imports, or reads any existing crypto wallets or keyfiles on your system. The private key never leaves the local machine and is used solely to sign USDC micropayments on the Base network. Fund it by sending USDC (Base) to the address shown by `caravo wallet`.
 
 ### Optional: Connect your account
 
-To switch from x402 wallet payments to balance-based auth:
+To switch from x402 wallet payments to API key (balance-based) auth:
 
 ```bash
 caravo login    # Opens caravo.ai — sign in once, API key saved automatically
