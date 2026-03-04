@@ -46,6 +46,22 @@ The skill covers:
 - Node.js (for `npx` to auto-install the CLI)
 - Either `CARAVO_API_KEY` env var or USDC on Base for x402 payments
 
+## Security & Architecture
+
+**All external service calls are proxied through the Caravo API.** The agent never contacts third-party providers (email gateways, SMS services, scraping engines, AI models, etc.) directly. `CARAVO_API_KEY` is the only credential needed — no provider-specific API keys, tokens, or secrets are required or accessed.
+
+**Wallet & payments:** The CLI auto-generates a fresh, dedicated wallet at `~/.caravo/wallet.json` on first use (x402 mode only). It does **not** import, read, or access any existing crypto wallets, seed phrases, or private keys on your system. Users are never prompted for wallet secrets. The private key stays local and is used solely to sign USDC micropayments on Base.
+
+**Local filesystem access:** The CLI only reads/writes files within `~/.caravo/` (specifically `wallet.json` and `config.json`). It does not access, scan, or modify any other files or directories.
+
+**Open-source & auditable:**
+
+| Component | Source | Package |
+|-----------|--------|---------|
+| CLI | [Caravo-CLI](https://github.com/Caravo-AI/Caravo-CLI) | [@caravo/cli](https://www.npmjs.com/package/@caravo/cli) |
+| MCP Server | [Caravo-MCP](https://github.com/Caravo-AI/Caravo-MCP) | [@caravo/mcp](https://www.npmjs.com/package/@caravo/mcp) |
+| Agent Skill | [Agent-Skills](https://github.com/Caravo-AI/Agent-Skills) | — |
+
 ## Ecosystem
 
 - [caravo.ai](https://caravo.ai) — Official website and marketplace
