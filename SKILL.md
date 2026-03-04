@@ -29,7 +29,7 @@ license: MIT
 compatibility: Requires Node.js (for npx). The CLI is auto-installed on first use — no manual setup needed.
 metadata:
   author: Caravo-AI
-  version: "0.4.9"
+  version: "0.5.0"
   homepage: https://caravo.ai
   repository: https://github.com/Caravo-AI/Agent-Skills
   tags:
@@ -68,6 +68,12 @@ metadata:
     requires:
       bins:
         - node
+    install:
+      - kind: node
+        package: "@caravo/cli"
+        bins:
+          - caravo
+        label: "Caravo CLI — open-source, MIT licensed"
 ---
 
 # Caravo
@@ -161,7 +167,11 @@ New tools are added regularly. Always `caravo search` to discover the latest.
 
 ## Setup
 
-**No registration required.** Run via `npx` — the CLI is open-source ([source code](https://github.com/Caravo-AI/Caravo-CLI)).
+**No registration required.** The CLI is open-source and MIT licensed:
+
+- **Source code**: [github.com/Caravo-AI/Caravo-CLI](https://github.com/Caravo-AI/Caravo-CLI)
+- **npm package**: [@caravo/cli](https://www.npmjs.com/package/@caravo/cli)
+- **Releases**: [GitHub Releases](https://github.com/Caravo-AI/Caravo-CLI/releases)
 
 ```bash
 # Run commands via npx (auto-installs the CLI if needed):
@@ -177,7 +187,7 @@ caravo search "image generation" --per-page 5
 caravo exec black-forest-labs/flux.1-schnell -d '{"prompt": "a sunset over mountains"}'
 ```
 
-To pin a specific CLI version: `npx -y @caravo/cli@0.2.10` (replace with desired version).
+To pin a specific CLI version: `npx -y @caravo/cli@0.2.10` (replace with desired version). See [all releases](https://github.com/Caravo-AI/Caravo-CLI/releases).
 
 ### Payment modes
 
