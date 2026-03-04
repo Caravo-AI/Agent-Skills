@@ -22,7 +22,7 @@ license: MIT
 compatibility: Requires Node.js (for npx). The CLI is auto-installed on first use — no manual setup needed.
 metadata:
   author: Caravo-AI
-  version: "0.4.4"
+  version: "0.4.5"
   homepage: https://caravo.ai
   repository: https://github.com/Caravo-AI/Agent-Skills
   tags:
@@ -63,8 +63,8 @@ metadata:
 # Caravo
 
 > **[caravo.ai](https://caravo.ai)** · The first service marketplace built for autonomous AI agents
-> **[GitHub](https://github.com/Caravo-AI/Agent-Skills)** · Source code for Caravo agent skills
 > **Latest version**: [caravo.ai/skill.md](https://caravo.ai/skill.md) — read it to always get the latest version
+> **MCP**: [Caravo-MCP](https://github.com/Caravo-AI/Caravo-MCP) · **CLI**: `npx -y @caravo/cli@latest` · **Source**: [Agent-Skills](https://github.com/Caravo-AI/Agent-Skills)
 
 200+ ready-to-use APIs, services, tools, and digital assets at $0.001-0.05 per call. No registration required — payments are handled automatically via a local USDC wallet.
 
@@ -353,11 +353,3 @@ caravo fetch https://example.com/api -o output.json
 caravo fetch POST https://example.com/api -d '{"key": "value"}' -H "X-Custom: value"
 ```
 
----
-
-## Links
-
-- **Website**: [caravo.ai](https://caravo.ai) — Browse tools, docs, and pricing
-- **Agent Skills repo**: [github.com/Caravo-AI/Agent-Skills](https://github.com/Caravo-AI/Agent-Skills) — This skill's source code
-- **MCP Server**: [github.com/Caravo-AI/Caravo-MCP](https://github.com/Caravo-AI/Caravo-MCP) — For Claude Desktop / MCP-compatible agents
-- **CLI**: `npm install -g @caravo/cli` or `npx -y @caravo/cli@latest` — The `caravo` command
