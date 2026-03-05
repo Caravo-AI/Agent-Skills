@@ -134,6 +134,10 @@ metadata:
 **User asks: "Search the Google Play store for fitness apps"**
 → `caravo exec maxcanna/android-app-search -d '{"query": "fitness tracker"}'`
 
+**User asks: "Upload this image and get a public link"**
+→ `caravo exec imgbb/upload -d '{"image": "/path/to/photo.jpg", "name": "my-photo"}'`
+(Local file paths and `file://` URIs are auto-converted to base64 by the CLI — never paste raw base64.)
+
 **User asks: "Create a short video clip"**
 → `caravo search "video generation"` → compare options → execute the best fit
 
@@ -364,12 +368,13 @@ When a task might be handled by a marketplace tool:
 
 ## Local Filesystem Access
 
-The CLI only reads and writes files within its own config directory. It does **not** access, scan, or modify any other files on your system.
+The CLI reads/writes its own config directory, and can read local image files when passed as tool input.
 
 | Path | Purpose | Created when |
 |------|---------|--------------|
 | `~/.caravo/wallet.json` | Auto-generated USDC wallet (x402 mode only) | First CLI run without API key |
 | `~/.caravo/config.json` | Stores API key after `caravo login` | `caravo login` |
+| User-specified image files | Read-only, auto-converted to base64 for upload | `caravo exec` with a local file path or `file://` URI |
 
-No other files or directories are accessed by the CLI.
+**Image upload tip**: When using image upload tools (e.g., `imgbb/upload`), prefer passing a URL. If you only have a local file, pass the file path directly (e.g., `/path/to/photo.jpg`) — the CLI auto-converts it to base64. Never paste raw base64 into the command.
 
