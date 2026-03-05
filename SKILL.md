@@ -376,5 +376,5 @@ The CLI reads/writes its own config directory, and can read local files when pas
 | `~/.caravo/config.json` | Stores API key after `caravo login` | `caravo login` |
 | User-specified files to upload | Read-only, auto-converted to data URI for upload | `caravo exec` with a local file path, `~/` path, or `file://` URI |
 
-**File upload tip**: When using tools that accept file input (images, video, audio, PDF), prefer passing a URL. If you only have a local file, pass the file path directly (e.g., `/path/to/photo.jpg` or `~/Downloads/image.png`) — the CLI auto-converts it to a data URI, and the server uploads it to CDN. Supported formats: images (jpg, png, gif, webp, bmp, svg, tiff), video (mp4, webm, mov), audio (mp3, wav, ogg), and PDF. Never paste raw base64 into the command.
+**File upload tip**: When a tool field asks for a file URL (e.g., `image_url`, `video_url`), you can pass a **local file path** instead — the CLI auto-converts it to a data URI, and the server uploads it to a cloud CDN URL. Example: `"image_url": "/path/to/photo.jpg"` or `"image_url": "~/Downloads/image.png"`. Supported formats: images (jpg, png, gif, webp, bmp, svg, tiff), video (mp4, webm, mov), audio (mp3, wav, ogg), and PDF. Prefer passing a URL when available. Never paste raw base64 into the command.
 
