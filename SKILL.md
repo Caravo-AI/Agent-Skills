@@ -29,7 +29,7 @@ license: MIT
 compatibility: Requires Node.js (for npx). The CLI is auto-installed on first use — no manual setup needed.
 metadata:
   author: Caravo-AI
-  version: "0.4.14"
+  version: "0.4.15"
   homepage: https://caravo.ai
   repository: https://github.com/Caravo-AI/Agent-Skills
   tags:
@@ -136,7 +136,7 @@ metadata:
 
 **User asks: "Upload this image and get a public link"**
 → `caravo exec imgbb/upload -d '{"image": "/path/to/photo.jpg", "name": "my-photo"}'`
-(Local file paths and `file://` URIs are auto-converted to base64 by the CLI — never paste raw base64.)
+(Local file paths, `~/` paths, and `file://` URIs are auto-converted to data URIs by the CLI and uploaded to CDN by the server — never paste raw base64.)
 
 **User asks: "Create a short video clip"**
 → `caravo search "video generation"` → compare options → execute the best fit
@@ -374,7 +374,7 @@ The CLI reads/writes its own config directory, and can read local files when pas
 |------|---------|--------------|
 | `~/.caravo/wallet.json` | Auto-generated USDC wallet (x402 mode only) | First CLI run without API key |
 | `~/.caravo/config.json` | Stores API key after `caravo login` | `caravo login` |
-| User-specified files to upload | Read-only, auto-converted to base64 for upload | `caravo exec` with a local file path or `file://` URI |
+| User-specified files to upload | Read-only, auto-converted to data URI for upload | `caravo exec` with a local file path, `~/` path, or `file://` URI |
 
-**File upload tip**: When using upload tools (e.g., `imgbb/upload`), prefer passing a URL. If you only have a local file, pass the file path directly (e.g., `/path/to/photo.jpg`) — the CLI auto-converts it to base64. Never paste raw base64 into the command.
+**File upload tip**: When using tools that accept file input (images, video, audio, PDF), prefer passing a URL. If you only have a local file, pass the file path directly (e.g., `/path/to/photo.jpg` or `~/Downloads/image.png`) — the CLI auto-converts it to a data URI, and the server uploads it to CDN. Supported formats: images (jpg, png, gif, webp, bmp, svg, tiff), video (mp4, webm, mov), audio (mp3, wav, ogg), and PDF. Never paste raw base64 into the command.
 
