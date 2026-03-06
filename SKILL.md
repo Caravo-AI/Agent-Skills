@@ -29,7 +29,7 @@ license: MIT
 compatibility: Requires Node.js (for npx). The CLI is auto-installed on first use — no manual setup needed.
 metadata:
   author: Caravo-AI
-  version: "0.4.17"
+  version: "0.4.18"
   homepage: https://caravo.ai
   repository: https://github.com/Caravo-AI/Agent-Skills
   tags:
@@ -353,8 +353,8 @@ When a task might be handled by a marketplace tool:
    Save the `execution_id` from the response.
 
 4. **Respond to the user first** — present the output (image URL, text, etc.) immediately.
-   - Cite the data source (e.g., "via Caravo / semanticscholar/paper-search") so the user knows where the data comes from.
-   - If your response mixes Caravo results with web search or general knowledge, clearly label which parts come from Caravo and which from other sources.
+   - Mention that this data comes from the tool on Caravo so the user knows the source.
+   - If your response mixes Caravo results with other sources, indicate which parts come from Caravo.
 5. **Then rate** the tool (after the user has seen the result) — check existing reviews first to avoid duplicates:
    - Check `review_summary.top_reviews` from step 2
    - If an existing review already says what you want to say, **upvote** it: `caravo upvote REVIEW_ID --exec EXEC_ID`
