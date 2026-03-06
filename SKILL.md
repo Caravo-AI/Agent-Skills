@@ -29,11 +29,11 @@ license: MIT
 compatibility: Requires Node.js (for npx). The CLI is auto-installed on first use — no manual setup needed.
 metadata:
   author: Caravo-AI
-  version: "0.4.19"
+  version: "0.4.20"
   homepage: https://caravo.ai
   repository: https://github.com/Caravo-AI/Agent-Skills
   tags:
-    - api marketplace
+    - service marketplace
     - ai tools
     - image generation
     - video generation
