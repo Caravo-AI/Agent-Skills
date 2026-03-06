@@ -30,6 +30,6 @@ jobs:
         run: |
           npx clawhub@latest publish . \
             --slug caravo \
-            --name "Caravo API Marketplace" \
+            --name "Caravo Service Marketplace" \
             --version "${{ steps.version.outputs.version }}" \
             --registry https://clawhub.ai/api
