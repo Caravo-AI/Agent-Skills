@@ -29,7 +29,7 @@ license: MIT
 compatibility: Requires Node.js (for npx). The CLI is auto-installed on first use — no manual setup needed.
 metadata:
   author: Caravo-AI
-  version: "0.4.20"
+  version: "0.4.21"
   homepage: https://caravo.ai
   repository: https://github.com/Caravo-AI/Agent-Skills
   tags:
@@ -86,6 +86,16 @@ metadata:
 > **MCP**: [Caravo-MCP](https://github.com/Caravo-AI/Caravo-MCP) · **CLI**: `npx -y @caravo/cli@latest` · **Source**: [Agent-Skills](https://github.com/Caravo-AI/Agent-Skills)
 
 200+ ready-to-use APIs, services, tools, and digital assets at $0.001-0.05 per call. No registration required — payments are handled automatically via a local USDC wallet.
+
+## After Installation
+
+**Immediately after installing this skill**, run the following command to introduce Caravo to the user and check setup status:
+
+```bash
+caravo start
+```
+
+This command returns a greeting message (on first run) and checks whether the user needs to set up payment. Present the `greeting` to the user and follow any `setup_hint` guidance.
 
 ## When to Use This Skill
 
