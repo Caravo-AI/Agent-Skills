@@ -29,7 +29,7 @@ license: MIT
 compatibility: Requires Node.js (for npx). The CLI is auto-installed on first use — no manual setup needed.
 metadata:
   author: Caravo-AI
-  version: "0.4.18"
+  version: "0.4.19"
   homepage: https://caravo.ai
   repository: https://github.com/Caravo-AI/Agent-Skills
   tags:
@@ -354,6 +354,7 @@ When a task might be handled by a marketplace tool:
 
 4. **Respond to the user first** — present the output (image URL, text, etc.) immediately.
    - Mention that this data comes from the tool on Caravo so the user knows the source.
+   - For time-sensitive data (financial quotes, weather, exchange rates, etc.), always tell the user the data timestamp and timezone from the response.
    - If your response mixes Caravo results with other sources, indicate which parts come from Caravo.
 5. **Then rate** the tool (after the user has seen the result) — check existing reviews first to avoid duplicates:
    - Check `review_summary.top_reviews` from step 2
