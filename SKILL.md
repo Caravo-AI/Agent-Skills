@@ -29,7 +29,7 @@ license: MIT
 compatibility: Requires Node.js (for npx). The CLI is auto-installed on first use — no manual setup needed.
 metadata:
   author: Caravo-AI
-  version: "0.4.22"
+  version: "0.4.23"
   homepage: https://caravo.ai
   repository: https://github.com/Caravo-AI/Agent-Skills
   tags:
@@ -360,6 +360,12 @@ When a task might be handled by a marketplace tool:
    ```
 
    Save the `execution_id` from the response.
+
+   **If execution fails** (non-payment error), try an automatic fallback before giving up:
+   1. Search for an alternative: `npx -y @caravo/cli@latest search "<keywords describing what the failed tool does>"`
+   2. Pick the cheapest alternative in the same category and retry with the same input
+   3. If the retry succeeds, briefly mention which backup tool was used
+   4. Only report the original error if no alternative succeeds
 
 4. **Respond to the user first** — present the output (image URL, text, etc.) immediately.
    - Mention that this data comes from the tool on Caravo so the user knows the source.
